@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span7 offset5">
+			<div class="row-fluid" ng-repeat="film in films| filter:{titre:query}|orderBy:'titre'">
+				  <a href="#/films/{{film.id | escape}}" class="thumb">
+					  <img ng-src="{{film.imageUrl}}" style="height: 30px" alt="{{film.titre}}"/>
+				      <span>{{film.titre}}</span>
+			      </a>
+			</div> 
+		</div>
+		<div class="span4 affix">
+			<div class="row-fluid">
+				<div class="span12">
+					<label class="label" for="search">Nombre total de films : {{films.length}}</label> 
+					<input type="text" class="search-query" placeholder="recherche"	id="search" ng-model="query"/>
+				</div>
+			</div> 
+			<div class="row-fluid">
+				<div class="span12">&nbsp;
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<button type="button" class="btn btn-block" ng-click="ajouter()">Ajouter un film</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

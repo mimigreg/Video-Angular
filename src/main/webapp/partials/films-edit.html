@@ -1,0 +1,54 @@
+<div class="container-fluid" >
+	<div class="row-fluid">
+		<div class="span3 well">
+			<form name="myForm">
+				<fieldset>
+					<label for="nomfilm">Titre :</label> <input type="text" id="nomfilm" ng-model="film.titre" placeholder="prénom nom" required/> 
+					<label for="urlfilm">URL  :</label> <input type="text" id="urlfilm" ng-model="film.imageUrl" placeholder="http://.." /> 
+					<img ng-src="{{film.imageUrl}}" style="width: 214px"/>
+					<textarea rows="3" ng-model="film.resume"></textarea>
+					<label for="notefilm">Appreciation perso / 5  :</label>	<input type="text" id="notefilm" ng-model="film.note" placeholder="5" />
+					<button type="button" class="btn btn-block" ng-click="save()">Valider la modification</button>
+					<button type="button" class="btn btn-block" ng-click="efface()">Effacer le film</button>
+				</fieldset>
+			</form>
+		</div>
+		<div class="span3">
+			<div class="row-fluid"
+				ng-repeat="participation in participations">
+				<div class="span4">
+						<img ng-src="{{participation.acteur.photoUrl}}" style="height: 30px" alt="{{participation.acteur.nom}}" /><span>{{participation.acteur.nom}}</span>
+				</div>
+				<div class="span3">{{participation.role}}</div>
+				<div class="span3">{{participation.precision}}</div>
+				<div class="span2"><button type="button" class="btn btn-block" ng-click="deleteParticipation(participation.id)">X</button></div>
+			</div>
+		</div>
+		<div class="span2">
+			<div class="row-fluid">
+				<div class="span6">
+					<label for="role">Role :</label> 
+					<select id="role" ng-model="participation.role" placeholder="role" required>
+					  <option>ACTEUR</option>
+					  <option>PRODUCTEUR</option>
+					  <option>REALISATEUR</option>
+					  <option>SCENARISTE</option>
+					</select> 
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span6">
+					<label for="detail">Detail  :</label> <input type="text" id="detail" ng-model="participation.precision" placeholder="nom du personnage..." /> 
+				</div>
+			</div>
+		</div>
+		<div class="span2">
+			<div class="row-fluid" ng-repeat="acteur in acteurs">
+				<div class="span1"><button type="button" class="btn btn-block" ng-click="addParticipation(acteur.id)"><-</button></div>
+				<div class="span11">
+						<img ng-src="{{acteur.photoUrl}}" style="height: 30px" alt="{{acteur.nom}}" /><span>{{acteur.nom}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
