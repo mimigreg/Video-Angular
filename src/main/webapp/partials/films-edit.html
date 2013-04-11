@@ -8,8 +8,8 @@
 					<img ng-src="{{film.imageUrl}}" style="width: 214px"/>
 					<textarea rows="3" ng-model="film.resume"></textarea>
 					<label for="notefilm">Appreciation perso / 5  :</label>	<input type="text" id="notefilm" ng-model="film.note" placeholder="5" />
-					<button type="button" class="btn btn-block" ng-click="save()">Valider la modification</button>
-					<button type="button" class="btn btn-block" ng-click="efface()">Effacer le film</button>
+					<button type="button" class="btn btn-block btn-success" ng-click="save()">Valider la modification</button>
+					<button type="button" class="btn btn-block btn-danger" ng-click="efface()">Effacer le film</button>
 				</fieldset>
 			</form>
 		</div>
