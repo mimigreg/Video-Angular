@@ -75,9 +75,7 @@ function FilmEditCtrl($scope, $routeParams, $http,$location) {
 		      }			
 		}
 		$http.post('services/participation',$scope.participation).success(function(data) {
-			var uneParticipation = $scope.participation;
-			$scope.participations.push(uneParticipation);
-			$scope.participation = new Object();
+			$scope.participations.push(data);
 		});	
 	};
 };
@@ -164,9 +162,7 @@ function ActeurEditCtrl($scope, $routeParams, $http,$location) {
 		      }			
 		}
 		$http.post('services/participation',$scope.participation).success(function(data) {
-			var uneParticipation = $scope.participation;
-			$scope.participations.push(uneParticipation);
-			$scope.participation = new Object();
+			$scope.participations.push(data);
 		});	
 	};
 };
